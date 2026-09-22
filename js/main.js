@@ -78,9 +78,9 @@ function toggleFullscreen() {
   else (document.exitFullscreen || document.webkitExitFullscreen || (() => { })).call(document);
 }
 function syncButtons() { const b = document.getElementById('btnMute'); if (b) b.textContent = Sfx.muted ? 'SOM: OFF' : 'SOM: ON'; }
-document.getElementById('btnMute').addEventListener('click', () => { Sfx.resume(); Sfx.setMuted(!Sfx.muted); if (!Sfx.muted && G.scene === 'play' && G.w) Sfx.startMusic(G.w.idx); syncButtons(); });
-document.getElementById('btnFull').addEventListener('click', toggleFullscreen);
-document.getElementById('btnEbook').addEventListener('click', () => { try { Sfx.play('ok'); } catch (e) { } });
+const btnMuteEl = document.getElementById('btnMute'); if (btnMuteEl) btnMuteEl.addEventListener('click', () => { Sfx.resume(); Sfx.setMuted(!Sfx.muted); if (!Sfx.muted && G.scene === 'play' && G.w) Sfx.startMusic(G.w.idx); syncButtons(); });
+const btnFullEl = document.getElementById('btnFull'); if (btnFullEl) btnFullEl.addEventListener('click', toggleFullscreen);
+const btnEbookEl = document.getElementById('btnEbook'); if (btnEbookEl) btnEbookEl.addEventListener('click', () => { try { Sfx.play('ok'); } catch (e) { } });
 
 /* ------------------------------------------------------------ inicialização */
 let last = performance.now(), acc = 0;
