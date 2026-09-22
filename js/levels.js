@@ -130,7 +130,7 @@ function level4() {
   b.ground(0, 44).ground(45, 149);
   b.start(3, 13); b.mentor(9, 13, 'f4');
   b.coins(12, 13, 4); b.block(16, 11, 4); b.coins(17, 10, 2); b.bank(24, 13); b.coins(30, 13, 4);
-  b.sign(37, 13, 'SEGURO: SUBA'); b.sign(41, 13, 'RISCO: SIGA');
+  b.sign(35, 13, 'SEGURO: CIMA'); b.sign(46, 13, 'RISCO: BAIXO');
   // caminho de cima (seguro): plataforma-degrau + piso contínuo
   b.block(44, 11, 3);
   b.block(50, 9, 48, 1);

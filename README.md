@@ -26,8 +26,8 @@ Depois da primeira abertura o jogo não depende de internet (a fonte e os sons j
 
 ## Dicas para a apresentação
 
-- Tecla **F** (ou botão TELA CHEIA) coloca em tela cheia; tecla **M** liga/desliga o som; **P** pausa.
-- Em telas de toque aparecem botões virtuais automaticamente (`?touch=1` força a exibição).
+- Tecla **F** (ou ícone ⛶ no topo) coloca em tela cheia; tecla **M** (ou ícone 🔊 no topo) liga/desliga o som; **P** pausa.
+- Em telas de toque aparecem botões virtuais automaticamente (`?touch=1` força a exibição): setas para andar e um único botão **A**, que pula e também interage/confirma.
 - Se ninguém mexer por 2,5 minutos, o jogo volta sozinho para a tela inicial (bom para quem chega depois).
 - Uma partida completa leva de 8 a 12 minutos. Para mostrar uma fase específica: `?fase=3` (1 a 5).
   Também aceita `&dinheiro=200&poupanca=100&divida=150` para simular situações.

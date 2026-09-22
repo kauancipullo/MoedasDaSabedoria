@@ -258,8 +258,8 @@ function updateWorld(w) {
     PS.lost += Math.min(RUN.wallet, 10); const l = Math.min(RUN.wallet, 10); RUN.wallet -= l;
     floatText(w, p.x, ROWS * TS - 30, l > 0 ? 'Queda! -' + fmt(l) : 'Queda!', '#ff6b6b'); Sfx.play('hurt'); happy(-3); respawn(w);
   }
-  // felicidade cai com o tempo
-  if (w.time % 170 === 0) happy(-1);
+  // felicidade cai com o tempo (mais rápido: fica mais desafiador manter o equilíbrio)
+  if (w.time % 85 === 0) happy(-1);
   if (RUN.happy <= 0 && !w.failed) { w.failed = true; }
 
   updateEnts(w);
@@ -288,7 +288,7 @@ function updateEnts(w) {
     switch (e.t) {
       case 'coin': {
         if (!e.alive) break;
-        if (Math.hypot(pcx - e.x, pcy - e.y) < 14) { e.alive = false; const v = Math.round(COIN_VALUE * RUN.coinMult); RUN.wallet += v; PS.coins++; PS.coinMoney += v; Sfx.play('coin'); burst(w, e.x, e.y, 4, ['#ffd23f', '#fff']); happy(0.15); }
+        if (Math.hypot(pcx - e.x, pcy - e.y) < 14) { e.alive = false; const v = Math.round(COIN_VALUE * RUN.coinMult); RUN.wallet += v; PS.coins++; PS.coinMoney += v; Sfx.play('coin'); burst(w, e.x, e.y, 4, ['#ffd23f', '#fff']); happy(0.07); }
         break;
       }
       case 'star': {

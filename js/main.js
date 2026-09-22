@@ -77,7 +77,7 @@ function toggleFullscreen() {
   if (!document.fullscreenElement) (el.requestFullscreen || el.webkitRequestFullscreen || (() => { })).call(el);
   else (document.exitFullscreen || document.webkitExitFullscreen || (() => { })).call(document);
 }
-function syncButtons() { const b = document.getElementById('btnMute'); if (b) b.textContent = Sfx.muted ? 'SOM: OFF' : 'SOM: ON'; }
+function syncButtons() { const b = document.getElementById('btnMute'); if (b) { b.textContent = Sfx.muted ? '🔇' : '🔊'; b.setAttribute('aria-label', Sfx.muted ? 'Som desligado' : 'Som ligado'); } }
 const btnMuteEl = document.getElementById('btnMute'); if (btnMuteEl) btnMuteEl.addEventListener('click', () => { Sfx.resume(); Sfx.setMuted(!Sfx.muted); if (!Sfx.muted && G.scene === 'play' && G.w) Sfx.startMusic(G.w.idx); syncButtons(); });
 const btnFullEl = document.getElementById('btnFull'); if (btnFullEl) btnFullEl.addEventListener('click', toggleFullscreen);
 const btnEbookEl = document.getElementById('btnEbook'); if (btnEbookEl) btnEbookEl.addEventListener('click', () => { try { Sfx.play('ok'); } catch (e) { } });

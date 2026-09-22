@@ -106,12 +106,13 @@ function endInput() { pressed = {}; taps = []; }
 
 /* controles de toque (HTML) */
 (function touchControls() {
-  const map = { btnLeft: 'ArrowLeft', btnRight: 'ArrowRight', btnJump: 'Space', btnAct: 'Enter' };
+  /* btnAct é o botão único "A": pula E interage/confirma ao mesmo tempo. */
+  const map = { btnLeft: ['ArrowLeft'], btnRight: ['ArrowRight'], btnAct: ['Space', 'Enter'] };
   for (const id in map) {
     const el = document.getElementById(id); if (!el) continue;
-    const code = map[id];
-    const down = e => { e.preventDefault(); if (!keys[code]) pressed[code] = true; keys[code] = true; G_lastInput = performance.now(); if (typeof Sfx !== 'undefined') Sfx.resume(); el.classList.add('on'); };
-    const up = e => { e.preventDefault(); keys[code] = false; el.classList.remove('on'); };
+    const codes = map[id];
+    const down = e => { e.preventDefault(); for (const code of codes) { if (!keys[code]) pressed[code] = true; keys[code] = true; } G_lastInput = performance.now(); if (typeof Sfx !== 'undefined') Sfx.resume(); el.classList.add('on'); };
+    const up = e => { e.preventDefault(); for (const code of codes) keys[code] = false; el.classList.remove('on'); };
     el.addEventListener('pointerdown', down); el.addEventListener('pointerup', up);
     el.addEventListener('pointerleave', up); el.addEventListener('pointercancel', up);
   }
